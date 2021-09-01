@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody playerRb;
     private float horizontalInput;
     private float verticalInput;
     private float speed = 10.0f;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+        playerRb = GetComponent<Rigidbody>();    
     }
 
     private void Update()
@@ -22,6 +22,6 @@ public class Move : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(new Vector3(horizontalInput, 0f, verticalInput) * speed);
+        playerRb.AddForce(new Vector3(horizontalInput, 0f, verticalInput) * speed);
     }
 }
