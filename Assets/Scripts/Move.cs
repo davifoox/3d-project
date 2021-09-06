@@ -5,23 +5,114 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     private Rigidbody playerRb;
+    private CharacterController controller;
+    
+    
     private float horizontalInput;
     private float verticalInput;
-    private float speed = 10.0f;
+    
+    
+    public float speedBall;
+    public float speedNormal;
+    public float rotSpeed;
+    public float gravity;
+    
+    
+    private float rot;
+    private Vector3 moveDir;
+
+
+    public bool ballForm;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();    
+        controller = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        NormalMove();
+       
+
     }
 
     void FixedUpdate()
     {
-        playerRb.AddForce(new Vector3(horizontalInput, 0f, verticalInput) * speed);
+        MoveBall();
+        ChangeForm();
+
+    }
+
+
+    void MoveBall()
+    {
+
+        if(ballForm)
+        {
+            
+            controller.enabled = false;
+
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+    
+            playerRb.AddForce(new Vector3(horizontalInput, 0f, verticalInput) * speedBall);
+            
+            
+
+
+        }
+       
+    }
+
+    void NormalMove()
+    {
+        if(!ballForm)
+        
+        {
+            controller.enabled = true;
+            
+            if(controller.isGrounded)
+            {
+                if(Input.GetKey(KeyCode.W))
+                {
+                    moveDir = Vector3.forward * speedNormal;
+
+                }
+            
+            if(Input.GetKeyUp(KeyCode.W))
+            {
+
+                //moveDir = Vector3.zero;
+
+            }
+            
+            }
+
+        rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+        transform.eulerAngles = new Vector3(0,rot,0);
+
+        moveDir.y -= gravity * Time.deltaTime;
+        moveDir = transform.TransformDirection(moveDir) * Time.deltaTime;
+
+        controller.Move(moveDir);
+
+        }
+
+    }
+    void ChangeForm(){
+
+        if(Input.GetKey(KeyCode.E)){
+
+            if(ballForm == false){
+
+                ballForm = true;
+            }
+            else if(ballForm == true){
+
+                ballForm = false;
+            }
+
+        }
     }
 }
