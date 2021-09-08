@@ -33,14 +33,14 @@ public class Move : MonoBehaviour
     private void Update()
     {
         NormalMove();
-       
+        ChangeForm();
+
 
     }
 
     void FixedUpdate()
     {
         MoveBall();
-        ChangeForm();
 
     }
 
@@ -102,17 +102,9 @@ public class Move : MonoBehaviour
     }
     void ChangeForm(){
 
-        if(Input.GetKey(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E)){
 
-            if(ballForm == false){
-
-                ballForm = true;
-            }
-            else if(ballForm == true){
-
-                ballForm = false;
-            }
-
+            ballForm = !ballForm;
         }
     }
 }
