@@ -6,6 +6,7 @@ public class Move : MonoBehaviour
 {
     private Rigidbody playerRb;
     private CharacterController controller;
+    private Vector3 moveDir;
     
     
     private float horizontalInput;
@@ -16,10 +17,10 @@ public class Move : MonoBehaviour
     public float speedNormal;
     public float rotSpeed;
     public float gravity;
-    
-    
     private float rot;
-    private Vector3 moveDir;
+
+    
+   
 
 
     public bool ballForm;
@@ -51,7 +52,9 @@ public class Move : MonoBehaviour
         if(ballForm)
         {
             
+            
             controller.enabled = false;
+
 
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
@@ -83,7 +86,7 @@ public class Move : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.W))
             {
 
-                //moveDir = Vector3.zero;
+                moveDir = Vector3.zero;
 
             }
             
