@@ -8,22 +8,16 @@ public class Move : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDir;
     
-    
     private float horizontalInput;
     private float verticalInput;
-    
-    
-    public float speedBall;
-    public float speedNormal;
-    public float rotSpeed;
-    public float gravity;
-    private float rot;
 
-    
-   
+    private float speedBall = 100;
+    private float speedNormal = 100;
+    private float rotSpeed = 10;
+    private float gravity = 10;
+    private float rot = 50;
 
-
-    public bool ballForm;
+    private bool ballForm = true;
 
     void Start()
     {
