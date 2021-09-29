@@ -15,8 +15,10 @@ public class BallMove : MonoBehaviour
 
 
     public bool isGround = true;
-    
-    
+
+    private float boostForce = 100f;
+    private bool ballForm = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,13 @@ public class BallMove : MonoBehaviour
 
         }
     }
+
+    public void Boost(Vector3 direction)
+    {
+        if(ballForm)
+            playerRB.AddForce(direction * boostForce, ForceMode.Impulse);
+    }
+
     void OnCollisionEnter(Collision collision){
 
         if(collision.gameObject.CompareTag("Ground"))
