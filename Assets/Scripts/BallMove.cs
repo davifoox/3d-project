@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class BallMove : MonoBehaviour
 {
-    
     public Rigidbody playerRB;
     private Vector3 inputVector;
     public Transform cam;
 
-
-    public float speed;
-    public float jumpSpeed;
-
+    float speed = 10;
+    float jumpSpeed = 15;
 
     public bool isGround = true;
 
-    private float boostForce = 100f;
+    private float boostForce = 200f;
     private bool ballForm = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         NormalMove();
@@ -35,6 +30,7 @@ public class BallMove : MonoBehaviour
 
         playerRB.velocity = inputVector;
     }
+
     void NormalMove(){
 
         inputVector = new Vector3(Input.GetAxis("Horizontal") * speed, playerRB.velocity.y, Input.GetAxis("Vertical") * speed);
@@ -46,15 +42,27 @@ public class BallMove : MonoBehaviour
         {
             playerRB.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             isGround = false;
-            
-
         }
     }
 
     public void Boost(Vector3 direction)
     {
-        if(ballForm)
+        if (ballForm)
+        {
             playerRB.AddForce(direction * boostForce, ForceMode.Impulse);
+            StartCoroutine("BoostTimer");
+        }
+    }
+
+    IEnumerator BoostTimer()
+    {
+        Debug.Log("BoostTimer!");
+        speed = 50;
+
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("BoostTimerEnded!");
+        speed = 10;
     }
 
     void OnCollisionEnter(Collision collision){
