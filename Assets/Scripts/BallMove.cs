@@ -59,7 +59,11 @@ public class BallMove : MonoBehaviour
         Debug.Log("BoostTimer!");
         speed = 50;
 
-        yield return new WaitForSeconds(1f);
+        while (speed > 10)
+        {
+            yield return new WaitForSeconds(0.1f);
+            speed--;
+        }
 
         Debug.Log("BoostTimerEnded!");
         speed = 10;
