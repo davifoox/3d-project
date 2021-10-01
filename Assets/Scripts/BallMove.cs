@@ -6,10 +6,11 @@ public class BallMove : MonoBehaviour
 {
     public Rigidbody playerRB;
     private Vector3 inputVector;
-    public Transform cam;
+    
 
     float speed = 10;
-    float jumpSpeed = 15;
+    float jumpSpeed = 15; 
+    public float rotSpeed;
 
     public bool isGround = true;
 
@@ -36,7 +37,11 @@ public class BallMove : MonoBehaviour
         inputVector = new Vector3(Input.GetAxis("Horizontal") * speed, playerRB.velocity.y, Input.GetAxis("Vertical") * speed);
         
 
-        transform.LookAt(transform.position + new Vector3(inputVector.x, 0, inputVector.z));
+        //transform.LookAt(transform.position + new Vector3(inputVector.x, 0, inputVector.z));
+
+
+
+        
 
         if(Input.GetButtonDown("Jump") && isGround)
         {
