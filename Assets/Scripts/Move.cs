@@ -11,11 +11,11 @@ public class Move : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    private float speedBall = 100;
-    private float speedNormal = 100;
-    private float rotSpeed = 10;
-    private float gravity = 10;
-    private float rot = 50;
+    public float speedBall = 100;
+    public float speedNormal = 100;
+    public float rotSpeed = 10;
+    public float gravity = 10;
+    public float rot = 50;
 
     private bool ballForm = true;
 
