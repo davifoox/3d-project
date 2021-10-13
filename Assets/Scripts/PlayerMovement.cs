@@ -6,12 +6,25 @@ public class PlayerMovement : MonoBehaviour
 {
    public CharacterController controller; 
    public Transform cam;
+    
+    
+    [Header("Floats Human")]
     public float speed;
+    
+    public float jumpSpeed = 8.0f;
+    [Header("Ball Floats")]
     public float ballSpeed;
+    
+    public float jumpSpeedBall = 15f;
+    
+    [Header("General Values")]
     public float gravity;
+    public float verticalVel;
     public float turnSmoothTime = 0.1f;
     public float smoothVel;
-
+    
+    
+    [Header("Bools")]
     public bool ballForm;
     // Start is called before the first frame update
     void Start()
@@ -53,24 +66,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveHuman()
     {
-
+        
         if(!ballForm)
         {
             
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
-
+            
         
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        Vector3 gravityVector = Vector3.zero;
+        Vector3 gravityVector = new Vector3(0, verticalVel, 0);
         
 
+        if(Input.GetButtonDown("Jump") && controller.isGrounded)
         
+        {
+            verticalVel = jumpSpeed;
+
+        }
 
         if(!controller.isGrounded)
         {
-            gravityVector.y -= gravity;
+            verticalVel -= gravity * Time.deltaTime;
             
         }
 
@@ -82,18 +100,19 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // move referente a dir do target ( mouse X )
+            
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
             
 
         }
 
-    controller.Move(gravityVector * Time.deltaTime);
+            controller.Move(gravityVector * Time.deltaTime);
 
 
 
         }
       
-
+        
     }
 
     public void BallMove()
@@ -101,17 +120,26 @@ public class PlayerMovement : MonoBehaviour
        if(ballForm)
        
        {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            
 
         
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        Vector3 gravityVector = Vector3.zero;
+        Vector3 gravityVector = new Vector3(0, verticalVel, 0);
+        
+        
+        if(Input.GetButtonDown("Jump") && controller.isGrounded)
+        
+        {
+            verticalVel = jumpSpeedBall;
+
+        }
 
         if(!controller.isGrounded)
         {
-            gravityVector.y -= gravity;
+            verticalVel -= gravity * Time.deltaTime;
             
         }
         

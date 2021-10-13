@@ -156,8 +156,11 @@ MonoBehaviour:
   controller: {fileID: 183142768}
   cam: {fileID: 1818556417}
   speed: 10
+  jumpSpeed: 8
   ballSpeed: 25
-  gravity: 30
+  jumpSpeedBall: 15
+  gravity: 50
+  verticalVel: 0
   turnSmoothTime: 0.1
   smoothVel: 0
   ballForm: 0
