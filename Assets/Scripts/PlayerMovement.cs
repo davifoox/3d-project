@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
    public CharacterController controller; 
    public Transform cam;
     public float speed;
+    public float ballSpeed;
     public float gravity;
     public float turnSmoothTime = 0.1f;
     public float smoothVel;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         MoveHuman();
         ChangeForm();
         ReleaseCursor();
+        BallMove();
        
 
     }
@@ -52,8 +54,11 @@ public class PlayerMovement : MonoBehaviour
     private void MoveHuman()
     {
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        if(!ballForm)
+        {
+            
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
 
         
 
@@ -84,5 +89,56 @@ public class PlayerMovement : MonoBehaviour
 
     controller.Move(gravityVector * Time.deltaTime);
 
+
+
+        }
+      
+
     }
+
+    public void BallMove()
+    {
+       if(ballForm)
+       
+       {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        
+
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 gravityVector = Vector3.zero;
+
+        if(!controller.isGrounded)
+        {
+            gravityVector.y -= gravity;
+            
+        }
+        
+        
+        
+        if(direction.magnitude >= 0.1f)
+        {
+
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y; // adiciona a camera no ang do target
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVel, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // move referente a dir do target ( mouse X )
+            controller.Move(moveDir.normalized * ballSpeed * Time.deltaTime);
+            
+
+        }
+
+    controller.Move(gravityVector * Time.deltaTime);
+
+
+           
+       }
+        
+        
+
+
+    }
+
 }
