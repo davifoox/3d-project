@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7956764388804240269}
   m_Layer: 0
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,10 +92,9 @@ GameObject:
   - component: {fileID: 7956764389104517946}
   - component: {fileID: 7956764389104517944}
   - component: {fileID: 7956764389104517947}
-  - component: {fileID: 7956764389104517945}
   m_Layer: 0
   m_Name: Boost
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,18 +146,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7956764389104517945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7956764389104517941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0a07a20f9ac734290656c0e504a469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7956764389639927827
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +159,7 @@ GameObject:
   - component: {fileID: 7956764389639927831}
   m_Layer: 0
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +240,7 @@ GameObject:
   - component: {fileID: 7956764389878961566}
   m_Layer: 0
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,7 +321,7 @@ GameObject:
   - component: {fileID: 7956764390327315416}
   m_Layer: 0
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

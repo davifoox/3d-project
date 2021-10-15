@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     public float verticalVel;
     public float turnSmoothTime = 0.1f;
     public float smoothVel;
+
+    public float boostDistance = 10f;
+    public float boostTime;
+    public bool isBoosted = false;
     
     
     [Header("Bools")]
@@ -40,7 +44,18 @@ public class PlayerMovement : MonoBehaviour
         ReleaseCursor();
         BallMove();
        
+        if(isBoosted){
 
+            boostTime+= Time.deltaTime;
+            if(boostTime>=3.5){
+
+                ballSpeed = 25f;
+                jumpSpeedBall = 15f;
+                gravity = 35f;
+                boostTime = 0;
+                isBoosted = false;
+            }
+        }
     }
 
     void ReleaseCursor()
@@ -169,4 +184,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+     void OnTriggerEnter(Collider collision)
+     {
+
+        if(collision.gameObject.tag == "Boost" && ballForm)
+        {
+           
+             isBoosted = true;  
+                ballSpeed = 50f;
+                jumpSpeedBall = 35f;
+                gravity = 30f;
+                
+
+            
+
+        }
+    }
+
+    
 }
