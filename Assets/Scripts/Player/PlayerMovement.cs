@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
    public CharacterController controller; 
    public Transform cam;
+   private SwitchForms switchForms;
     
     
     [Header("Floats Human")]
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        switchForms = GetComponent<SwitchForms>();
     }
 
     // Update is called once per frame
@@ -70,10 +72,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void ChangeForm()
+   public void ChangeForm()
     {
-        if(Input.GetKeyDown(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E))
+        {
 
+            switchForms.SwitchAvatar();
             ballForm = !ballForm;
         }
 
