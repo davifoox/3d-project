@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
    public CharacterController controller; 
+   public SphereCollider ballColl;
+   public Rigidbody playerRb;
    public Transform cam;
    private SwitchForms switchForms;
     
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         switchForms = GetComponent<SwitchForms>();
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -88,7 +91,12 @@ public class PlayerMovement : MonoBehaviour
         
         if(!ballForm)
         {
-            
+            // condições
+            controller.enabled = true;
+            playerRb.detectCollisions = false;
+            ballColl.enabled = false;
+
+
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             
@@ -139,6 +147,12 @@ public class PlayerMovement : MonoBehaviour
        if(ballForm)
        
        {
+            //condições
+            controller.enabled = false;
+            playerRb.detectCollisions = true;
+            ballColl.enabled =true;
+            
+            
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             
