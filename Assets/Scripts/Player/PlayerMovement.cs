@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         switchForms = GetComponent<SwitchForms>();
         playerRb = GetComponent<Rigidbody>();
+        ballColl = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
