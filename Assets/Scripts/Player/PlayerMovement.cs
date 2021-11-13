@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
    public CharacterController controller; 
+   public Transform playerTranform;
    public SphereCollider ballColl;
    public Rigidbody playerRb;
    public Transform cam;
    public GameObject mainCamera;
    private SwitchForms switchForms;
+   RigidbodyConstraints originalConstraints;
     
     
     [Header("Floats Human")]
@@ -34,6 +36,13 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Bools")]
     public bool ballForm;
+   
+   void Awake()
+   {
+
+       originalConstraints = playerRb.constraints;
+
+   }
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         switchForms = GetComponent<SwitchForms>();
         playerRb = GetComponent<Rigidbody>();
         ballColl = GetComponent<SphereCollider>();
+        playerTranform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -87,6 +97,8 @@ void FixedUpdate()
 
             switchForms.SwitchAvatar();
             ballForm = !ballForm;
+
+          
         }
 
     }
@@ -100,6 +112,11 @@ void FixedUpdate()
             controller.enabled = true;
             playerRb.detectCollisions = false;
             ballColl.enabled = false;
+            playerRb.constraints = RigidbodyConstraints.FreezeRotation;
+            playerTranform.rotation = Quaternion.Euler(0,playerTranform.localRotation.eulerAngles.y,0);
+
+            
+           
 
 
             float horizontal = Input.GetAxisRaw("Horizontal");
@@ -156,19 +173,23 @@ void FixedUpdate()
             controller.enabled = false;
             playerRb.detectCollisions = true;
             ballColl.enabled =true;
+            playerRb.constraints = originalConstraints;
             
             
-            //camera
-            Vector3 camToMe = transform.position - mainCamera.transform.position;
-            camToMe.y = 0;
-            camToMe.Normalize();
+            
+            
+            
+        //camera
+        Vector3 camToMe = transform.position - mainCamera.transform.position;
+        camToMe.y = 0;
+        camToMe.Normalize();
 
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
             
 
         
-        
+        //Vectors
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         Vector3 gravityVector = new Vector3(0, verticalVel, 0);
         
