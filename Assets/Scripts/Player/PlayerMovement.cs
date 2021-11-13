@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
    public SphereCollider ballColl;
    public Rigidbody playerRb;
    public Transform cam;
+   public GameObject mainCamera;
    private SwitchForms switchForms;
     
     
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         MoveHuman();
         ChangeForm();
         ReleaseCursor();
-        BallMove();
+        
        
         if(isBoosted){
 
@@ -63,7 +64,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
+void FixedUpdate()
+{
+    BallMove();
+}
     void ReleaseCursor()
     {
 
@@ -154,45 +158,35 @@ public class PlayerMovement : MonoBehaviour
             ballColl.enabled =true;
             
             
+            //camera
+            Vector3 camToMe = transform.position - mainCamera.transform.position;
+            camToMe.y = 0;
+            camToMe.Normalize();
+
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             
 
         
-
+        
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         Vector3 gravityVector = new Vector3(0, verticalVel, 0);
         
-        
+        Vector3 movement = (camToMe * vertical + mainCamera.transform.right * horizontal);
+
+
+        playerRb.AddForce(movement * ballSpeed);        
+
+
+
+
+
         if(Input.GetButtonDown("Jump") && controller.isGrounded)
         
         {
             verticalVel = jumpSpeedBall;
 
         }
-
-        if(!controller.isGrounded)
-        {
-            verticalVel -= gravity * Time.deltaTime;
-            
-        }
-        
-        
-        
-        if(direction.magnitude >= 0.1f)
-        {
-
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y; // adiciona a camera no ang do target
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVel, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // move referente a dir do target ( mouse X )
-            controller.Move(moveDir.normalized * ballSpeed * Time.deltaTime);
-            
-
-        }
-
-    controller.Move(gravityVector * Time.deltaTime);
 
 
            
