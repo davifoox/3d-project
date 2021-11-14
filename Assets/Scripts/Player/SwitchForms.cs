@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class SwitchForms : MonoBehaviour
 {
-    
-    
     public GameObject humanoid, ball;
     private PlayerMovement PlayerMovement;
+    public Rigidbody playerBody;
 
     int whichAvatar = 1;
 
-
-    
-    // Start is called before the first frame update
     void Start()
     {
         PlayerMovement = GetComponent<PlayerMovement>();
@@ -21,15 +17,8 @@ public class SwitchForms : MonoBehaviour
         ball.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SwitchAvatar()
     {
-
         switch (whichAvatar)
         {
             case 1:
@@ -38,15 +27,19 @@ public class SwitchForms : MonoBehaviour
             ball.gameObject.SetActive(true);
             break;
 
-
             case 2:
             whichAvatar = 1;
             humanoid.gameObject.SetActive(true);
             ball.gameObject.SetActive(false);
+            ResetRigidbodyMomentum();
             break;
-
-
         }
 
+    }
+
+    void ResetRigidbodyMomentum()
+    {
+        playerBody.velocity = Vector3.zero;
+        playerBody.angularVelocity = Vector3.zero;
     }
 }
