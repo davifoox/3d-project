@@ -9,7 +9,7 @@ public class Boost : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.GetComponent<BallMove>().Boost(this.transform.forward *-1);
+            other.GetComponent<PlayerMovement>().Boost(this.transform.forward *-1);
         }
     }
 }

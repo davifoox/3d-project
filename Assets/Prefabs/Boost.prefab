@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7956764389104517946}
   - component: {fileID: 7956764389104517944}
   - component: {fileID: 7956764389104517947}
+  - component: {fileID: -4977075315050215174}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Boost
@@ -146,6 +147,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4977075315050215174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956764389104517941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0a07a20f9ac734290656c0e504a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7956764389639927827
 GameObject:
   m_ObjectHideFlags: 0

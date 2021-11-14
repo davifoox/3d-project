@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     [Header("Ball Floats")]
     public float ballSpeed;
+    public float maxSpeed = 15f;
+    public float regularSpeed = 10f;
+    public float boostForce = 100f;
     
     public float jumpSpeedBall = 15f;
     
@@ -173,11 +176,36 @@ public class PlayerMovement : MonoBehaviour
                 verticalVel = jumpSpeedBall;
             }
        }
+    
+        
     }
+        public void Boost(Vector3 direction)
+    {
+        if (ballForm)
+        {
+            playerRb.AddForce(direction * boostForce, ForceMode.Impulse);
+            StartCoroutine("BoostTimer");
+        }
+    }
+    IEnumerator BoostTimer()
+    {
+        Debug.Log("BoostTimer!");
+        speed = maxSpeed;
 
+        while (speed > 12)
+        {
+            yield return new WaitForSeconds(0.2f);
+            speed--;
+        }
+
+        Debug.Log("BoostTimerEnded!");
+        speed = regularSpeed;
+    }
+    
      void OnTriggerEnter(Collider collision)
      {
-        if(collision.gameObject.tag == "Boost" && ballForm)
+      
+/*        if(collision.gameObject.tag == "Boost" && ballForm)
         {
             isBoosted = true;  
             ballSpeed = 50f;
@@ -185,4 +213,6 @@ public class PlayerMovement : MonoBehaviour
             gravity = 30f;
         }
     }
+    */
+     }
 }
