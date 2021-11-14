@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   public CharacterController controller; 
-   public Transform playerTranform;
-   public SphereCollider ballColl;
-   public Rigidbody playerRb;
-   public Transform cam;
-   public GameObject mainCamera;
-   private SwitchForms switchForms;
-   RigidbodyConstraints originalConstraints;
+    public CharacterController controller; 
+    public Transform playerTranform;
+    public SphereCollider ballColl;
+    public Rigidbody playerRb;
+    public Transform cam;
+    public GameObject mainCamera;
+    private SwitchForms switchForms;
+    RigidbodyConstraints originalConstraints;
     
     
     [Header("Floats Human")]
@@ -33,17 +33,14 @@ public class PlayerMovement : MonoBehaviour
     public float boostTime;
     public bool isBoosted = false;
     
-    
     [Header("Bools")]
     public bool ballForm;
    
    void Awake()
    {
-
        originalConstraints = playerRb.constraints;
-
    }
-    // Start is called before the first frame update
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -53,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         playerTranform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         MoveHuman();
@@ -74,38 +70,31 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-void FixedUpdate()
-{
-    BallMove();
-}
+
+    void FixedUpdate()
+    {
+        BallMove();
+    }
+
     void ReleaseCursor()
     {
-
-        
         if(Input.GetButtonDown("Cancel"))
         {
             Cursor.lockState = CursorLockMode.None;
-            
         }
-        
     }
 
    public void ChangeForm()
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-
             switchForms.SwitchAvatar();
             ballForm = !ballForm;
-
-          
         }
-
     }
 
     private void MoveHuman()
     {
-        
         if(!ballForm)
         {
             // condições
@@ -115,53 +104,41 @@ void FixedUpdate()
             playerRb.constraints = RigidbodyConstraints.FreezeRotation;
             playerTranform.rotation = Quaternion.Euler(0,playerTranform.localRotation.eulerAngles.y,0);
 
-            
-           
-
-
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             
         
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        Vector3 gravityVector = new Vector3(0, verticalVel, 0);
+            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+            Vector3 gravityVector = new Vector3(0, verticalVel, 0);
         
 
-        if(Input.GetButtonDown("Jump") && controller.isGrounded)
+            if(Input.GetButtonDown("Jump") && controller.isGrounded)
         
-        {
-            verticalVel = jumpSpeed;
+            {
+                verticalVel = jumpSpeed;
 
-        }
+            }
 
-        if(!controller.isGrounded)
-        {
-            verticalVel -= gravity * Time.deltaTime;
+            if(!controller.isGrounded)
+            {
+                verticalVel -= gravity * Time.deltaTime;
+            }
+
+            if(direction.magnitude >= 0.1f)
+            {
+
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y; // adiciona a camera no ang do target
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVel, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // move referente a dir do target ( mouse X )
             
-        }
-
-        if(direction.magnitude >= 0.1f)
-        {
-
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y; // adiciona a camera no ang do target
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVel, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // move referente a dir do target ( mouse X )
-            
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            
-
-        }
+                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            }
 
             controller.Move(gravityVector * Time.deltaTime);
-
-
-
         }
-      
-        
     }
 
     public void BallMove()
@@ -175,66 +152,37 @@ void FixedUpdate()
             ballColl.enabled =true;
             playerRb.constraints = originalConstraints;
             
-            
-            
-            
-            
-        //camera
-        Vector3 camToMe = transform.position - mainCamera.transform.position;
-        camToMe.y = 0;
-        camToMe.Normalize();
+            //camera
+            Vector3 camToMe = transform.position - mainCamera.transform.position;
+            camToMe.y = 0;
+            camToMe.Normalize();
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-            
-
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
         
-        //Vectors
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        Vector3 gravityVector = new Vector3(0, verticalVel, 0);
+            //Vectors
+            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+            Vector3 gravityVector = new Vector3(0, verticalVel, 0);
         
-        Vector3 movement = (camToMe * vertical + mainCamera.transform.right * horizontal);
+            Vector3 movement = (camToMe * vertical + mainCamera.transform.right * horizontal);
 
+            playerRb.AddForce(movement * ballSpeed);        
 
-        playerRb.AddForce(movement * ballSpeed);        
-
-
-
-
-
-        if(Input.GetButtonDown("Jump") && controller.isGrounded)
-        
-        {
-            verticalVel = jumpSpeedBall;
-
-        }
-
-
-           
+            if(Input.GetButtonDown("Jump") && controller.isGrounded)
+            {
+                verticalVel = jumpSpeedBall;
+            }
        }
-        
-        
-
-
     }
-
 
      void OnTriggerEnter(Collider collision)
      {
-
         if(collision.gameObject.tag == "Boost" && ballForm)
         {
-           
-             isBoosted = true;  
-                ballSpeed = 50f;
-                jumpSpeedBall = 35f;
-                gravity = 30f;
-                
-
-            
-
+            isBoosted = true;  
+            ballSpeed = 50f;
+            jumpSpeedBall = 35f;
+            gravity = 30f;
         }
     }
-
-    
 }
