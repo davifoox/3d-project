@@ -13,16 +13,15 @@ public class PlayerMovement : MonoBehaviour
     private SwitchForms switchForms;
     RigidbodyConstraints originalConstraints;
     
-    
     [Header("Floats Human")]
     public float speed;
     
     public float jumpSpeed = 8.0f;
     [Header("Ball Floats")]
-    public float ballSpeed;
-    public float maxSpeed = 15f;
-    public float regularSpeed = 10f;
-    public float boostForce = 100f;
+    float ballSpeed = 80f;
+    float regularBallSpeed = 80f;
+    float maxBallSpeed = 160f;
+    float boostForce = 20f;
     
     public float jumpSpeedBall = 15f;
     
@@ -59,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
         ChangeForm();
         ReleaseCursor();
         
-       
-        if(isBoosted){
+       //isso aqui tá sendo feito na corrotina já:
+        /*if(isBoosted){
 
             boostTime+= Time.deltaTime;
             if(boostTime>=3.5){
@@ -71,11 +70,15 @@ public class PlayerMovement : MonoBehaviour
                 boostTime = 0;
                 isBoosted = false;
             }
-        }
+        }*/
     }
 
     void FixedUpdate()
     {
+        //apply gravity
+        float ballGravity = 60f;
+        playerRb.AddForce(Vector3.down * ballGravity * playerRb.mass);
+
         BallMove();
     }
 
@@ -167,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
             Vector3 gravityVector = new Vector3(0, verticalVel, 0);
         
-            Vector3 movement = (camToMe * vertical + mainCamera.transform.right * horizontal);
+            Vector3 movement = (camToMe * vertical + mainCamera.transform.right * horizontal).normalized;
 
             playerRb.AddForce(movement * ballSpeed);        
 
@@ -179,7 +182,8 @@ public class PlayerMovement : MonoBehaviour
     
         
     }
-        public void Boost(Vector3 direction)
+
+    public void Boost(Vector3 direction)
     {
         if (ballForm)
         {
@@ -187,19 +191,20 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine("BoostTimer");
         }
     }
+
     IEnumerator BoostTimer()
     {
         Debug.Log("BoostTimer!");
-        speed = maxSpeed;
+        ballSpeed = maxBallSpeed;
 
-        while (speed > 12)
+        while (ballSpeed > regularBallSpeed)
         {
-            yield return new WaitForSeconds(0.2f);
-            speed--;
+            yield return new WaitForSeconds(0.1f);
+            ballSpeed -= 2f;
         }
 
         Debug.Log("BoostTimerEnded!");
-        speed = regularSpeed;
+        ballSpeed = regularBallSpeed;
     }
     
      void OnTriggerEnter(Collider collision)
