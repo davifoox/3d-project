@@ -25877,6 +25877,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1818556414}
+    - target: {fileID: 3746314840364323650, guid: 5eaf3d5c834b84e48b67b203bdecab57, type: 3}
+      propertyPath: maxBallSpeed
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 3746314840364323652, guid: 5eaf3d5c834b84e48b67b203bdecab57, type: 3}
       propertyPath: m_Name
       value: PlayerLocal
