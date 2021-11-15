@@ -18,10 +18,10 @@ public class PlayerMovement : MonoBehaviour
     
     public float jumpSpeed = 8.0f;
     [Header("Ball Floats")]
-    [SerializeField] float ballSpeed = 80f;
+    [SerializeField] float ballSpeed = 60f;
     [SerializeField] float regularBallSpeed = 80f;
-    [SerializeField] float maxBallSpeed = 160f;
-    [SerializeField] float boostForce = 20f;
+    [SerializeField] float maxBallSpeed = 120f;
+    [SerializeField] float boostForce = 50f;
     [SerializeField] float ballGravity = 30f;
     
     public float jumpSpeedBall = 15f;
