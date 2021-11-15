@@ -18,22 +18,23 @@ public class PlayerMovement : MonoBehaviour
     
     public float jumpSpeed = 8.0f;
     [Header("Ball Floats")]
-    float ballSpeed = 80f;
-    float regularBallSpeed = 80f;
-    float maxBallSpeed = 160f;
-    float boostForce = 20f;
+    [SerializeField] float ballSpeed = 80f;
+    [SerializeField] float regularBallSpeed = 80f;
+    [SerializeField] float maxBallSpeed = 160f;
+    [SerializeField] float boostForce = 20f;
+    [SerializeField] float ballGravity = 30f;
     
     public float jumpSpeedBall = 15f;
     
     [Header("General Values")]
-    public float gravity;
-    public float verticalVel;
-    public float turnSmoothTime = 0.1f;
-    public float smoothVel;
+    [SerializeField]  float gravity;
+    [SerializeField]  float verticalVel;
+    [SerializeField]  float turnSmoothTime = 0.1f;
+    [SerializeField]  float smoothVel;
 
-    public float boostDistance = 10f;
-    public float boostTime;
-    public bool isBoosted = false;
+    [SerializeField]  float boostDistance = 10f;
+    [SerializeField]  float boostTime;
+    [SerializeField]  bool isBoosted = false;
     
     [Header("Bools")]
     public bool ballForm;
@@ -76,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //apply gravity
-        float ballGravity = 60f;
+        
         playerRb.AddForce(Vector3.down * ballGravity * playerRb.mass);
 
         BallMove();
