@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: -145838988394251369
     second: Interface1_12
+  - first:
+      213: 1285444012079815519
+    second: Interface1_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -395,6 +398,27 @@ TextureImporter:
       bones: []
       spriteID: 79bbb567630e9fdf0800000000000000
       internalID: -145838988394251369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface1_13
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 520
+        width: 1354
+        height: 806
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b9ba6b480d6d110800000000000000
+      internalID: 1285444012079815519
       vertices: []
       indices: 
       edges: []
