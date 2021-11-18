@@ -208,17 +208,6 @@ public class PlayerMovement : MonoBehaviour
         ballSpeed = regularBallSpeed;
     }
     
-     void OnTriggerEnter(Collider collision)
-     {
-      
-/*        if(collision.gameObject.tag == "Boost" && ballForm)
-        {
-            isBoosted = true;  
-            ballSpeed = 50f;
-            jumpSpeedBall = 35f;
-            gravity = 30f;
-        }
-    }
-    */
-     }
+     
+     
 }
