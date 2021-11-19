@@ -6,6 +6,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     
     private bool isRespawning;
+    public float respawnLenght;
     private Vector3 respawnPoint;
     public PlayerMovement thePlayer;
 
@@ -35,12 +36,45 @@ public class PlayerRespawn : MonoBehaviour
     }
     void OnControllerCollider(ControllerColliderHit hit)
     {
-        Respawn();
+        if(hit.gameObject.tag == "Water")
+        
+        {
+
+            Respawn();
+        
+        }
+        
 
     }
     public void Respawn()
     {
+        
+        if(!isRespawning)
+        {
+
+            StartCoroutine("RespawnCo");
+
+        }
+    }
+    public IEnumerator RespawnCo()
+    {
+        isRespawning = true;
+        
+
+        
+        yield return new WaitForSeconds(respawnLenght);
+        isRespawning = false;
+
+
+        
         thePlayer.transform.position = respawnPoint;
+
+    }
+    public void SetRespawnPoint(Vector3 newRespPos)
+    
+    {
+
+        respawnPoint = newRespPos;
 
     }
 }
