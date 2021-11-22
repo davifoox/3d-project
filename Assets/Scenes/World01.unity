@@ -16821,7 +16821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb6dc31845433a4abf01180b08cd9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 300
+  timeValue: 120
   timerText: {fileID: 1292318325}
 --- !u!1001 &918808623
 PrefabInstance:
@@ -32048,7 +32048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3746314840364323653, guid: 5eaf3d5c834b84e48b67b203bdecab57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.1
+      value: 23.46
       objectReference: {fileID: 0}
     - target: {fileID: 3746314840364323653, guid: 5eaf3d5c834b84e48b67b203bdecab57, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32056,7 +32056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3746314840364323653, guid: 5eaf3d5c834b84e48b67b203bdecab57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -87.38
+      value: -89.18
       objectReference: {fileID: 0}
     - target: {fileID: 3746314840364323653, guid: 5eaf3d5c834b84e48b67b203bdecab57, type: 3}
       propertyPath: m_LocalRotation.w
