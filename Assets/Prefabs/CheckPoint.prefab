@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRespawn: {fileID: 0}
+  checkRend: {fileID: 9198874547879636779}
+  checkOn: {fileID: 2100000, guid: 52f327f677950da4eaf9dd91c2ba7651, type: 2}
+  checkOff: {fileID: 2100000, guid: 42bc6e80ec4ab06468a485eb88650d88, type: 2}
 --- !u!65 &8724047368776815291
 BoxCollider:
   m_ObjectHideFlags: 0

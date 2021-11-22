@@ -6,6 +6,12 @@ public class Checkpoint : MonoBehaviour
 {
     
     public PlayerRespawn playerRespawn;
+    public Renderer checkRend;
+
+    public Material checkOn;
+    public Material checkOff;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,7 @@ public class Checkpoint : MonoBehaviour
         {
 
             playerRespawn.SetRespawnPoint(transform.position);
+            CheckpointOn();
             Debug.Log("Checkpoint");
 
         }
@@ -37,10 +44,32 @@ public class Checkpoint : MonoBehaviour
         {
             
             playerRespawn.SetRespawnPoint(transform.position);
+            CheckpointOn();
             Debug.Log("Checkpoint");
 
 
         }
+
+    }
+
+    public void CheckpointOn()
+    {
+        
+        Checkpoint[] checkpoints = FindObjectsOfType<Checkpoint>();
+
+        foreach (Checkpoint checkpoint in  checkpoints)
+        {
+            checkpoint.CheckpointOff();
+
+        }
+
+        checkRend.material = checkOn;
+
+    }
+
+    public void CheckpointOff()
+    {
+        checkRend.material = checkOff;
 
     }
 }
