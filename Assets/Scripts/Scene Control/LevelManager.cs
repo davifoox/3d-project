@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
     private GameObject[] letters;
+
+    public Image uiLetterT1;
+    public Image uiLetterA;
+    public Image uiLetterT2;
+    public Image uiLetterU;
 
     private void Update()
     {
@@ -47,6 +53,27 @@ public class LevelManager : MonoBehaviour
     {
         letterGameObject.GetComponent<Letter>().OnLetterPicked -= PickLetter;
         Debug.Log("PEGOU LETRA " + name);
+        UpdateLetterUI(name);
         //criar aqui a lógica da quantidade de letras e condição de WIN
+    }
+
+    void UpdateLetterUI(string name)
+    {
+        if(name == "T1")
+        {
+            uiLetterT1.color = Color.white;
+        }
+        else if(name == "A")
+        {
+            uiLetterA.color = Color.white;
+        }
+        else if(name == "T2")
+        {
+            uiLetterT2.color = Color.white;
+        }
+        else if (name == "U")
+        {
+            uiLetterU.color = Color.white;
+        }
     }
 }
