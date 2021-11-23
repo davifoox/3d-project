@@ -54,26 +54,23 @@ public class LevelManager : MonoBehaviour
         letterGameObject.GetComponent<Letter>().OnLetterPicked -= PickLetter;
         Debug.Log("PEGOU LETRA " + name);
         UpdateLetterUI(name);
-        //criar aqui a lógica da quantidade de letras e condição de WIN
     }
 
     void UpdateLetterUI(string name)
     {
         if(name == "T1")
-        {
             uiLetterT1.color = Color.white;
-        }
         else if(name == "A")
-        {
             uiLetterA.color = Color.white;
-        }
         else if(name == "T2")
-        {
             uiLetterT2.color = Color.white;
-        }
         else if (name == "U")
-        {
             uiLetterU.color = Color.white;
+
+        if(uiLetterT1.color == Color.white && uiLetterA.color == Color.white
+            && uiLetterT2.color == Color.white && uiLetterU.color == Color.white)
+        {
+            Debug.Log("Próximo nível!");
         }
     }
 }
