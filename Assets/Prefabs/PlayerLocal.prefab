@@ -344,7 +344,7 @@ MonoBehaviour:
   ballSpeed: 60
   regularBallSpeed: 80
   maxBallSpeed: 120
-  boostForce: 120
+  boostForce: 50
   ballGravity: 30
   jumpSpeedBall: 15
   gravity: 25
