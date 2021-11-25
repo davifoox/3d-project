@@ -22,7 +22,7 @@ public class SwitchCameras : MonoBehaviour
     {
         if(player == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("CamFollow");
             if(player!= null)
             {
                 tFollow = player.transform;
