@@ -70,7 +70,8 @@ public class LevelManager : MonoBehaviour
         if(uiLetterT1.color == Color.white && uiLetterA.color == Color.white
             && uiLetterT2.color == Color.white && uiLetterU.color == Color.white)
         {
-            Debug.Log("Próximo nível!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("Prï¿½ximo nï¿½vel!");
         }
     }
 }

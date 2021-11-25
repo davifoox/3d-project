@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         switchForms = GetComponent<SwitchForms>();
         playerRb = GetComponent<Rigidbody>();
         ballColl = GetComponent<SphereCollider>();
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetButtonDown("Cancel"))
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

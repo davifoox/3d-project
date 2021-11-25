@@ -7,6 +7,10 @@ public class Timer : MonoBehaviour
 {
     public float timeValue = 90f;
     public TMP_Text timerText;
+    public GameObject endGameUi;
+   
+    public bool isTheEnd;
+    private PauseMenu pause;
     
     // Start is called before the first frame update
     void Start()
@@ -19,14 +23,21 @@ public class Timer : MonoBehaviour
     {
         if(timeValue > 0)
         {
+            
             timeValue -= Time.deltaTime;
+            
 
         }
         else
         {
             timeValue = 0;
+               
         }
-    
+        if(timeValue <= 0)
+        {
+            GameIsEnd();
+
+        }
         DisplayTime(timeValue);
     }
 
@@ -34,6 +45,7 @@ public class Timer : MonoBehaviour
     {
         if(timeToDisplay < 0)
         {
+            
             timeToDisplay = 0;
 
         }
@@ -42,5 +54,13 @@ public class Timer : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    public void GameIsEnd()
+    {
+
+        endGameUi.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+            
     }
 }

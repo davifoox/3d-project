@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     
-    public static bool gameIsPaused = false;
-    [SerializeField] private GameObject pauseMenuUI;
+    public  bool gameIsPaused = false;
+    private Timer timer;
+    public GameObject pauseMenuUI;
+    
+    
     [SerializeField] private bool disableControlls;
     
     
@@ -33,6 +36,7 @@ public class PauseMenu : MonoBehaviour
 
             }
         }
+    
     }
 
     public void Resume()
@@ -59,6 +63,12 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+
+    }
+    public void PlayAgain()
+    {
+       
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
 
     }
 }
