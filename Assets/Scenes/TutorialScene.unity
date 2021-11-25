@@ -223,6 +223,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1001634621319039818, guid: 40f579023dc814041b3033ab26705160, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632703601743843388, guid: 40f579023dc814041b3033ab26705160, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8632703603345401768, guid: 40f579023dc814041b3033ab26705160, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     
     public void PlayGame()
     {
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene("World01");
 
     }
 
