@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayCredits()
     {
-        SceneManager.LoadScene("CreditsScene");
+        SceneManager.LoadScene("Credits");
 
     }
     public void QuitGame()
