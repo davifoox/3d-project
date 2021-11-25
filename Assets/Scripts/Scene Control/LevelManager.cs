@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+       /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             Scene scene = SceneManager.GetActiveScene(); 
@@ -24,6 +25,7 @@ public class LevelManager : MonoBehaviour
         {
             Application.Quit();
         }
+    */
     }
 
     private void OnEnable()

@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         switchForms = GetComponent<SwitchForms>();
         playerRb = GetComponent<Rigidbody>();
