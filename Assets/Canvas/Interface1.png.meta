@@ -17,6 +17,15 @@ TextureImporter:
   - first:
       213: 1285444012079815519
     second: Interface1_13
+  - first:
+      213: -7007331292691484529
+    second: Interface1_14
+  - first:
+      213: -6467585665150066714
+    second: Interface1_15
+  - first:
+      213: 1141952990657740605
+    second: Interface1_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -217,10 +226,10 @@ TextureImporter:
       name: Interface1_4
       rect:
         serializedVersion: 2
-        x: 2792
-        y: 1556
-        width: 1157
-        height: 1215
+        x: 2808
+        y: 2351
+        width: 1122
+        height: 398
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,6 +428,69 @@ TextureImporter:
       bones: []
       spriteID: f5b9ba6b480d6d110800000000000000
       internalID: 1285444012079815519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface1_14
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 2090
+        width: 1122
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8035a3d055f0ce90800000000000000
+      internalID: -7007331292691484529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface1_15
+      rect:
+        serializedVersion: 2
+        x: 2795
+        y: 1849
+        width: 1128
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ef5252ba158e36a0800000000000000
+      internalID: -6467585665150066714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface1_16
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1556
+        width: 1128
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f7956d13809df00800000000000000
+      internalID: 1141952990657740605
       vertices: []
       indices: 
       edges: []
