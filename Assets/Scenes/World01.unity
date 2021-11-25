@@ -32443,6 +32443,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7007659145401505801, guid: 236bba7399d933a4d8958212fd3de6b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7007659145870774162, guid: 236bba7399d933a4d8958212fd3de6b8, type: 3}
       propertyPath: m_Name
       value: Camera Controller
