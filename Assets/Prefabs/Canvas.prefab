@@ -4401,7 +4401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   pauseMenuUI: {fileID: 8632703601743843388}
-  disableControlls: 0
+  optionsMenuUI: {fileID: 4919828294180139020}
+  otherMenus: 0
 --- !u!1 &8632703603598334287
 GameObject:
   m_ObjectHideFlags: 0
