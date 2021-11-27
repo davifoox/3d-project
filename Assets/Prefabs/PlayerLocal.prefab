@@ -868,6 +868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3324559159692844680}
+  - component: {fileID: 6592739569541566791}
   m_Layer: 0
   m_Name: "miseric\xF3rdiaDeus"
   m_TagString: Untagged
@@ -883,7 +884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2695655467731059762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.026913, y: 1.2239, z: -0.29465}
+  m_LocalPosition: {x: 0.026913, y: 0.82, z: -0.29465}
   m_LocalScale: {x: 0.55043, y: 0.55043, z: 0.55043}
   m_Children:
   - {fileID: 1896739347172836845}
@@ -895,6 +896,25 @@ Transform:
   m_Father: {fileID: 3746314840364323653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6592739569541566791
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2695655467731059762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee0550aa4aca9d34f99ecd53a7a5263e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2918260427319137165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3746314840364323652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.1, y: 24.76, z: -87.38}
+  m_LocalPosition: {x: 21.1, y: 23.79, z: -87.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3324559159692844680}
@@ -1185,7 +1205,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.81, z: 0}
+  m_Center: {x: 0, y: 1.64, z: 0}
 --- !u!54 &7064655800505693264
 Rigidbody:
   m_ObjectHideFlags: 0
