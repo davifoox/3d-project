@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: -3851873640012038185
     second: Derrota (2) 1_0
+  - first:
+      213: 5398113397382941094
+    second: Cortado - Lose_0
+  - first:
+      213: -4906840862715505786
+    second: Cortado - Lose_1
+  - first:
+      213: -6251962273727098676
+    second: Cortado - Lose_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -126,14 +135,82 @@ TextureImporter:
         width: 1614
         height: 240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -738, y: 64}
+        - {x: -691, y: 6}
+        - {x: -635, y: -72}
+        - {x: 688, y: -75}
+        - {x: 651, y: 107}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df346f15556b8ac0800000000000000
+      internalID: -3851873640012038185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cortado - Lose_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 23
+        width: 1614
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7df346f15556b8ac0800000000000000
-      internalID: -3851873640012038185
+      spriteID: 6a98944d883f9ea40800000000000000
+      internalID: 5398113397382941094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cortado - Lose_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 497
+        width: 1614
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6839870ab3667ebb0800000000000000
+      internalID: -4906840862715505786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cortado - Lose_2
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 703
+        width: 1631
+        height: 395
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc05a55bf619c39a0800000000000000
+      internalID: -6251962273727098676
       vertices: []
       indices: 
       edges: []

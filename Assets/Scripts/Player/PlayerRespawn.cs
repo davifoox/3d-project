@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     
-    private bool isRespawning;
+    public bool isRespawning;
     public float respawnLenght;
     private Vector3 respawnPoint;
     public PlayerMovement thePlayer;
+    private Timer timer;
 
     // Start is called before the first frame update
     void Start()
     {
         
-    
+        timer = GetComponent<Timer>();
         respawnPoint = thePlayer.transform.position;
         
     }
@@ -29,6 +30,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         if(other.gameObject.tag == "Water")
         {
+            
             Respawn();
 
         }
@@ -39,7 +41,7 @@ public class PlayerRespawn : MonoBehaviour
         if(hit.gameObject.tag == "Water")
         
         {
-
+            
             Respawn();
         
         }

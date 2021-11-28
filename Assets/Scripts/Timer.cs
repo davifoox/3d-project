@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     public float timeValue = 90f;
     public TMP_Text timerText;
-    public GameObject endGameUi;
+    public GameObject endGameUi, wantToLeaveEnd;
    
     public bool isTheEnd;
     private PauseMenu pause;
@@ -38,6 +38,9 @@ public class Timer : MonoBehaviour
             GameIsEnd();
 
         }
+        
+        
+        
         DisplayTime(timeValue);
     }
 
@@ -61,6 +64,13 @@ public class Timer : MonoBehaviour
         endGameUi.SetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;
+
+        if(wantToLeaveEnd.activeInHierarchy)
+        {
+
+            endGameUi.SetActive(false);
+
+        }
             
     }
 }
