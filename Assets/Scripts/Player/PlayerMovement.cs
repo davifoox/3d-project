@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform cam;
     public GameObject mainCamera;
     private SwitchForms switchForms;
+    private Animator animator;
+    
     RigidbodyConstraints originalConstraints;
     
     [Header("Floats Human")]
@@ -60,19 +62,7 @@ public class PlayerMovement : MonoBehaviour
         ChangeForm();
         ReleaseCursor();
         
-       //isso aqui tá sendo feito na corrotina já:
-        /*if(isBoosted){
-
-            boostTime+= Time.deltaTime;
-            if(boostTime>=3.5){
-
-                ballSpeed = 25f;
-                jumpSpeedBall = 15f;
-                gravity = 35f;
-                boostTime = 0;
-                isBoosted = false;
-            }
-        }*/
+       
     }
 
     void FixedUpdate()
@@ -115,7 +105,14 @@ public class PlayerMovement : MonoBehaviour
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             
-        
+            animator = GetComponentInChildren<Animator>();
+            
+            bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
+            bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
+            bool isWalking = hasHorizontalInput || hasVerticalInput;
+	    
+
+            animator.SetBool("isWalking", isWalking);
 
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
             Vector3 gravityVector = new Vector3(0, verticalVel, 0);
