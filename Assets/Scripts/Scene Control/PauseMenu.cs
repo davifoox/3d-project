@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     
     public  bool gameIsPaused = false;
     private Timer timer;
-    public GameObject pauseMenuUI, optionsMenuUI;
+    public GameObject pauseMenuUI, optionsMenuUI, winGameMenu, loseGameMenu;
     
     
     [SerializeField] private bool otherMenus;
@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
     {
         
         
-        if(Input.GetKeyDown(KeyCode.Escape) && !optionsMenuUI.activeInHierarchy)
+        if(Input.GetKeyDown(KeyCode.Escape) && !optionsMenuUI.activeInHierarchy && !winGameMenu.activeInHierarchy && !loseGameMenu.activeInHierarchy)
         {
             if(gameIsPaused)
             {
@@ -72,7 +72,12 @@ public class PauseMenu : MonoBehaviour
     public void PlayAgain()
     {
        
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
 
+    }
+
+    public void NextLevel(){
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
