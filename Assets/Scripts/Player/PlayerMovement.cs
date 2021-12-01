@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject mainCamera;
     private SwitchForms switchForms;
     private Animator animator;
+    private OptionsMenu options;
+    
+    
+    
+    
     
     RigidbodyConstraints originalConstraints;
     
@@ -26,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float boostForce = 50f;
     [SerializeField] float ballGravity = 30f;
     
-    public float jumpSpeedBall = 15f;
+    [SerializeField] float jumpSpeedBall = 15f;
     
     [Header("General Values")]
     [SerializeField]  float gravity;
@@ -37,9 +42,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]  float boostDistance = 10f;
     [SerializeField]  float boostTime;
     [SerializeField]  bool isBoosted = false;
+    [SerializeField]  bool ballForm;
+
+    [Header("Audios")]
+
+    private AudioSource audioSource;
+
     
-    [Header("Bools")]
-    public bool ballForm;
+
+
    
    void Awake()
    {
@@ -54,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         ballColl = GetComponent<SphereCollider>();
         playerTranform = GetComponent<Transform>();
+        audioSource = GetComponent<AudioSource>();
+
+
+        PlayerPrefs.GetFloat("FxVol");
+
     }
 
     void Update()
@@ -207,5 +223,12 @@ public class PlayerMovement : MonoBehaviour
     }
     
      
-     
+     public void WalkingFxSound(float fxValue)
+     {
+
+         audioSource.volume = options.fxSlider.value;
+         audioSource.Play();
+         PlayerPrefs.GetFloat("FxVol", fxValue);
+
+     }
 }

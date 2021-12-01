@@ -10,6 +10,8 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 respawnPoint;
     public PlayerMovement thePlayer;
     private Timer timer;
+    private AudioSource audioSource;
+    public AudioClip death;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class PlayerRespawn : MonoBehaviour
         
         timer = GetComponent<Timer>();
         respawnPoint = thePlayer.transform.position;
+        audioSource = GetComponent<AudioSource>();
         
     }
 
@@ -30,7 +33,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         if(other.gameObject.tag == "Water")
         {
-            
+            audioSource.PlayOneShot(death);
             Respawn();
 
         }
@@ -41,7 +44,7 @@ public class PlayerRespawn : MonoBehaviour
         if(hit.gameObject.tag == "Water")
         
         {
-            
+            audioSource.PlayOneShot(death);
             Respawn();
         
         }
