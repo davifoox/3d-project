@@ -2900,8 +2900,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1760474528}
   - component: {fileID: 1760474529}
+  - component: {fileID: 1760474530}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: FxSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2979,7 +2980,35 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1760474530}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetFxVol
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1760474530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760474527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800ab2ea7c0a8c74da07147ecfd26a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicAudio: {fileID: 24100000, guid: f68a2d558dbc8b0478ecab3c414a874a, type: 2}
+  fxAudio: {fileID: 24100000, guid: 988d0500bee984a4e939b931719ec2fc, type: 2}
+  musicSlider: {fileID: 1995146396}
+  fxSlider: {fileID: 1760474529}
 --- !u!1 &1776141097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3367,8 +3396,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1995146395}
   - component: {fileID: 1995146396}
+  - component: {fileID: 1995146397}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3446,7 +3476,35 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1995146397}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetMusicVol
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1995146397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995146394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800ab2ea7c0a8c74da07147ecfd26a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicAudio: {fileID: 24100000, guid: f68a2d558dbc8b0478ecab3c414a874a, type: 2}
+  fxAudio: {fileID: 24100000, guid: 988d0500bee984a4e939b931719ec2fc, type: 2}
+  musicSlider: {fileID: 1995146396}
+  fxSlider: {fileID: 1760474529}
 --- !u!1 &2009209621
 GameObject:
   m_ObjectHideFlags: 0
