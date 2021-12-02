@@ -13,6 +13,11 @@ public class LevelManager : MonoBehaviour
     public Image uiLetterT2;
     public Image uiLetterU;
 
+    [Header("Fade")]
+
+    public Animator animator;
+    public Image tFade;
+
     private void Update()
     {
        /*
@@ -72,8 +77,17 @@ public class LevelManager : MonoBehaviour
         if(uiLetterT1.color == Color.white && uiLetterA.color == Color.white
             && uiLetterT2.color == Color.white && uiLetterU.color == Color.white)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(NextLevelFade());
             Debug.Log("Pr�ximo n�vel!");
         }
+    }
+
+    IEnumerator NextLevelFade()
+    {
+
+        animator.SetBool("Fade", true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }
