@@ -3220,10 +3220,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 462410091}
   m_HandleRect: {fileID: 1233125780}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3729,10 +3729,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 301774957}
   m_HandleRect: {fileID: 769459776}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4078,6 +4078,10 @@ PrefabInstance:
     - target: {fileID: 4485217712065357286, guid: 90d31894c999f194aa0f2176fdf333f4, type: 3}
       propertyPath: m_Name
       value: Fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485217712065357286, guid: 90d31894c999f194aa0f2176fdf333f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d31894c999f194aa0f2176fdf333f4, type: 3}
