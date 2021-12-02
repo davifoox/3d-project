@@ -13,13 +13,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("World01");
+        StartCoroutine(FadingPlay());
 
     }
 
     public void PlayTutorial()
     {
-        SceneManager.LoadScene("TutorialScene");
+        StartCoroutine(FadingTutorial());
 
     }
     public void PlayCredits()
@@ -40,6 +40,22 @@ public class MainMenu : MonoBehaviour
         animator.SetBool("Fade", true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Credits");
+
+    }
+    IEnumerator FadingPlay()
+    {
+
+        animator.SetBool("Fade", true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("World01");
+
+    }
+    IEnumerator FadingTutorial()
+    {
+
+        animator.SetBool("Fade", true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("TutorialScene");
 
     }
 }
