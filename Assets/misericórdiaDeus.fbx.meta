@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: 1023992570608409904
     second: rig|Walk
+  - first:
+      74: -9139379876964695580
+    second: rig|Walk (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -38,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig|Idle
-      takeName: rig|Idle
+      name: rig|Walk (1)
+      takeName: rig|Walk
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 23
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

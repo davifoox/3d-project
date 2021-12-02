@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Audios")]
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
+    public AudioClip walk;
 
     
 
@@ -129,6 +130,10 @@ public class PlayerMovement : MonoBehaviour
 	    
 
             animator.SetBool("isWalking", isWalking);
+            
+          
+            
+            
 
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
             Vector3 gravityVector = new Vector3(0, verticalVel, 0);
@@ -149,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
             if(direction.magnitude >= 0.1f)
             {
 
+                
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y; // adiciona a camera no ang do target
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothVel, turnSmoothTime);
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -156,9 +162,11 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // move referente a dir do target ( mouse X )
             
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
+                
             }
 
             controller.Move(gravityVector * Time.deltaTime);
+            
         }
     }
 
@@ -227,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
      {
 
          audioSource.volume = options.fxSlider.value;
-         audioSource.Play();
+         audioSource.PlayOneShot(walk);
          PlayerPrefs.GetFloat("FxVol", fxValue);
 
      }
