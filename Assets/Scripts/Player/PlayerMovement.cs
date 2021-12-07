@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]  bool isBoosted = false;
     [SerializeField]  bool ballForm;
     public Quaternion originalRotation;
+    private Vector3 originalPosition;
     public float rotSpeed;
 
     [Header("Audios")]
@@ -59,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
    {
        originalConstraints = playerRb.constraints;
        originalRotation = transform.rotation;
+       originalPosition = playerTranform.position;
+       
    }
 
     void Start()
@@ -107,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime * rotSpeed);
+            playerTranform.position = new Vector3(playerTranform.position.x, playerTranform.position.y + 2, playerTranform.position.z);
             switchForms.SwitchAvatar();
             ballForm = !ballForm;
         }
