@@ -41,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig|Walk (1)
-      takeName: rig|Walk
+      name: rig|Idle
+      takeName: rig|Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 23
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

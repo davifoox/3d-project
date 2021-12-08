@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour
     public Animator animator;
     public Image tFade;
 
+    [Header("Next Level")]
+
+    public GameObject nextLevelMenu;
+
     private void Update()
     {
        /*
@@ -77,17 +81,30 @@ public class LevelManager : MonoBehaviour
         if(uiLetterT1.color == Color.white && uiLetterA.color == Color.white
             && uiLetterT2.color == Color.white && uiLetterU.color == Color.white)
         {
-            StartCoroutine(NextLevelFade());
+            Time.timeScale = 0;
+            nextLevelMenu.SetActive(true);
+            Cursor.visible = true;
             Debug.Log("Pr�ximo n�vel!");
         }
     }
 
     IEnumerator NextLevelFade()
     {
-
+        
+        Time.timeScale = 1;
+        nextLevelMenu.SetActive(false);
         animator.SetBool("Fade", true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+
+    }
+
+    public void NextLevelCall()
+    {
+
+        StartCoroutine(NextLevelFade());
+
 
     }
 }
