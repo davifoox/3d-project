@@ -21,6 +21,10 @@ public class LevelManager : MonoBehaviour
     [Header("Next Level")]
 
     public GameObject nextLevelMenu;
+    public GameObject nextLevelMenu2;
+    public GameObject nextLevelMenu3;
+    
+    public Timer timer;
 
     private void Update()
     {
@@ -81,10 +85,39 @@ public class LevelManager : MonoBehaviour
         if(uiLetterT1.color == Color.white && uiLetterA.color == Color.white
             && uiLetterT2.color == Color.white && uiLetterU.color == Color.white)
         {
+            if(timer.timeValue >= 90)
+            {
+
+                
             Time.timeScale = 0;
             nextLevelMenu.SetActive(true);
             Cursor.visible = true;
             Debug.Log("Pr�ximo n�vel!");
+
+
+            }
+        
+            if(timer.timeValue >= 60 && timer.timeValue <=90)
+            {
+            
+            Time.timeScale = 0;
+            nextLevelMenu2.SetActive(true);
+            Cursor.visible = true;
+            Debug.Log("Pr�ximo n�vel!");
+
+
+            }
+        
+            if(timer.timeValue >= 40 && timer.timeValue <=60)
+            {
+
+            Time.timeScale = 0;
+            nextLevelMenu3.SetActive(true);
+            Cursor.visible = true;
+            Debug.Log("Pr�ximo n�vel!");
+
+
+            }
         }
     }
 
@@ -93,6 +126,8 @@ public class LevelManager : MonoBehaviour
         
         Time.timeScale = 1;
         nextLevelMenu.SetActive(false);
+        nextLevelMenu2.SetActive(false);
+        nextLevelMenu3.SetActive(false);
         animator.SetBool("Fade", true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
