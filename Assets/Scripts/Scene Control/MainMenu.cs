@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
 
         animator.SetBool("Fade", true);
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("World01");
+        SceneManager.LoadScene("World00");
 
     }
     IEnumerator FadingTutorial()
