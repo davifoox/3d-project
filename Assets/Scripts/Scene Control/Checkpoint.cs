@@ -10,12 +10,14 @@ public class Checkpoint : MonoBehaviour
 
     public Material checkOn;
     public Material checkOff;
+    private AudioSource audioSource;
 
     
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         playerRespawn = FindObjectOfType<PlayerRespawn>();
     }
 
@@ -29,7 +31,7 @@ public class Checkpoint : MonoBehaviour
     {
         if(other.tag.Equals ("Player"))
         {
-
+            
             playerRespawn.SetRespawnPoint(transform.position);
             CheckpointOn();
             Debug.Log("Checkpoint");
@@ -54,7 +56,7 @@ public class Checkpoint : MonoBehaviour
 
     public void CheckpointOn()
     {
-        
+        audioSource.Play();
         Checkpoint[] checkpoints = FindObjectsOfType<Checkpoint>();
 
         foreach (Checkpoint checkpoint in  checkpoints)
